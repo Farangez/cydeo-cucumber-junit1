@@ -57,4 +57,9 @@ for given duration
     }
 
 
+    //This method accepts a String "expectedInTitle" and Asserts if it is true that title contains the expectedInTitle
+
+    public static void verifyTitleContains(String expectedInTitle){
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedInTitle));
+}
 }
