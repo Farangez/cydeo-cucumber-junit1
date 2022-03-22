@@ -11,11 +11,11 @@ public class BrowserUtils {
 This method will accept int (in seconds) and execute Thread.sleep
 for given duration
  */
-    public static void sleep(int second){
-        second *=1000;
+    public static void sleep(int second) {
+        second *= 1000;
         try {
             Thread.sleep(second);
-        }catch (InterruptedException e ) {
+        } catch (InterruptedException e) {
 
         }
     }
@@ -27,7 +27,7 @@ for given duration
         - If condition matches, will break loop.
     Arg3: expectedInTitle to be compared against actualTitle
      */
-    public static void switchWindowAndVerify(String expectedInUrl, String expectedInTitle){
+    public static void switchWindowAndVerify(String expectedInUrl, String expectedInTitle) {
 
         Set<String> allWindowsHandles = Driver.getDriver().getWindowHandles();
 
@@ -37,7 +37,7 @@ for given duration
 
             System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
 
-            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)) {
                 break;
             }
         }
@@ -50,7 +50,7 @@ for given duration
     /*
     This method accepts a String "expectedTitle" and Asserts if it is true
      */
-    public static void verifyTitle(String expectedTitle){
+    public static void verifyTitle(String expectedTitle) {
 
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
 
@@ -59,7 +59,12 @@ for given duration
 
     //This method accepts a String "expectedInTitle" and Asserts if it is true that title contains the expectedInTitle
 
-    public static void verifyTitleContains(String expectedInTitle){
+    public static void verifyTitleContains(String expectedInTitle) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(expectedInTitle));
-}
+    }
+
+    public static void verifyURLContains(String expectedInURL) {
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInURL));
+    }
+
 }
